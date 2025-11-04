@@ -9,7 +9,7 @@ def result_calculate(size, lights, device):
     home_coef = 100
     light_coef = 0.04
     devices_coef = 5   
-    return size * home_coef + lights * light_coef + device * devices_coef 
+    return int(size * home_coef + lights * light_coef + device * devices_coef) 
 
 # Pierwsza strona
 @app.route('/')
@@ -36,6 +36,7 @@ def electronics(size, lights):
 # Obliczenia
 @app.route('/<size>/<lights>/<device>')
 def end(size, lights, device):
+    print(result_calculate(int(size), int(lights), int(device)))
     return render_template('end.html', 
                             result=result_calculate(int(size),
                                                     int(lights), 
