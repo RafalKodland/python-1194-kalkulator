@@ -51,11 +51,13 @@ def form():
 def submit_form():
     # Zadeklaruj zmienne do gromadzenia danych
     name = request.form['name']
-
+    email = request.form['mail']
+    
     # Możesz zapisać swoje dane lub wysłać je e-mailem
     return render_template('form_result.html', 
                            # Umieść tutaj zmienne
                            name=name,
+                           email=email
                            )
 
 app.run(debug=True)
